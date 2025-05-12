@@ -2,7 +2,7 @@
 import networkx as nx
 from matplotlib.patches import Ellipse
 
-def desenhar_grafo(G, ax, canvas, path_edges=None, node_colors=None, scc_groups=None, legenda_callback=None):
+def desenhar_grafo(G, ax, canvas, path_edges=None, node_colors=None, scc_groups=None, legenda_callback=None, legenda_texto_manual=None):
     ax.clear()
     pos = nx.spring_layout(G, k=1.0, seed=42)  # k menor para reduzir dispersão
 
@@ -16,6 +16,9 @@ def desenhar_grafo(G, ax, canvas, path_edges=None, node_colors=None, scc_groups=
     nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, ax=ax)
 
     legenda_texto = ""
+
+    if legenda_texto_manual:
+        legenda_texto += legenda_texto_manual + "\n\n"
 
     if path_edges:
         nx.draw_networkx_edges(G, pos, edgelist=path_edges, edge_color='red', width=2.5, ax=ax)

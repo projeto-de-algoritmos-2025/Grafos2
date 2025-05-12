@@ -52,7 +52,7 @@ class GrafoApp:
 
         self.texto_legenda = tk.Text(self.frame_principal, width=30, height=20)
         self.texto_legenda.pack(side="right", padx=10, pady=10, fill="y")
-        self.texto_legenda.insert("1.0", "Legenda dos SCCs\n")
+        self.texto_legenda.insert("1.0", "Selecione um algoritmo para visualizar a legenda:\n")
         self.texto_legenda.configure(state="disabled")
 
         self.desenhar()
@@ -93,24 +93,41 @@ class GrafoApp:
             origem = int(simpledialog.askstring("Origem", "Digite o nó de origem:"))
             destino = int(simpledialog.askstring("Destino", "Digite o nó de destino:"))
             path_edges = calcular_dijkstra(self.G, origem, destino)
+
+            legenda = f"Caminho mínimo de {origem} até {destino}:\n"
+            for u, v in path_edges:
+                peso = self.G[u][v].get('weight', 1)
+                legenda += f"{u} -> {v} (peso {peso})\n"
             self.desenhar(path_edges=path_edges)
+            self.atualizar_legenda(legenda)
         except nx.NetworkXNoPath:
             tk.messagebox.showinfo("Caminho não encontrado", "Não existe caminho entre os nós selecionados.")
         except Exception as e:
             tk.messagebox.showerror("Erro", f"Erro ao calcular Dijkstra: {e}")
 
-
     def mostrar_prim(self):
         try:
-            path_edges = calcular_prim(self.G)
-            self.desenhar(path_edges=path_edges)
+            arvore = calcular_prim(self.G)
+            legenda = "Árvore Geradora Mínima pelo Algortimo de Prim:\n"
+            for u, v in arvore:
+                peso = self.G[u][v].get('weight', 1)
+                legenda += f"{u} - {v} (peso {peso})\n"
+            self.desenhar(path_edges=arvore)
+            self.atualizar_legenda(legenda)
+
         except Exception as e:
             tk.messagebox.showerror("Erro", f"Erro ao calcular Prim: {e}")
 
     def mostrar_kruskal(self):
         try:
-            path_edges = calcular_kruskal(self.G)
-            self.desenhar(path_edges=path_edges)
+            arvore = calcular_kruskal(self.G)
+            legenda = "Árvore Geradora Mínima pelo Algoritmo de Kruskal:\n"
+            for u, v in arvore:
+                peso = self.G[u][v].get('weight', 1)
+                legenda += f"{u} - {v} (peso {peso})\n"
+            self.desenhar(path_edges=arvore)
+            self.atualizar_legenda(legenda)
+
         except Exception as e:
             tk.messagebox.showerror("Erro", f"Erro ao calcular Kruskal: {e}")
 
