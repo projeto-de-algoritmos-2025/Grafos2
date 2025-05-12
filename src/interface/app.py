@@ -120,7 +120,8 @@ class GrafoApp:
 
     def gerar_customizado(self):
         try:
-            entrada = simpledialog.askstring("Arestas", "Digite as arestas no formato (origem,destino,peso) separados por vírgula:")
+            entrada = simpledialog.askstring("Arestas", "Digite as arestas no formato (origem.destino.peso) separadando-as por vírgula:" \
+            "exemplo: (3.2.1),(3.2.2),(3.1.1)")
             lista = [tuple(map(int, parte.strip().strip("()").split("."))) for parte in entrada.split(",")]
             self.G = grafo_customizado(lista)
             self.desenhar(legenda_callback=self.atualizar_legenda)
