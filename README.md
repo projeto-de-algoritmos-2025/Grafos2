@@ -87,5 +87,6 @@ python src/main.py
 - Elipses tracejadas indicam agrupamentos SCC.
 - Cores distintas são atribuídas a cada componente SCC.
 - Caminhos mínimos são exibidos em vermelho.
+- Os grafos são por padrão direcionados e transformados em não-direcionados para as soluções de Kruskal e Prim.
 
 ---

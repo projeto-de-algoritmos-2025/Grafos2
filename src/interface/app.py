@@ -107,30 +107,30 @@ class GrafoApp:
 
     def mostrar_prim(self):
         try:
-            arvore = calcular_prim(self.G)
+            G_nao_direcionado = self.G.to_undirected()
+            arvore = calcular_prim(G_nao_direcionado)
             legenda = "Árvore Geradora Mínima pelo Algortimo de Prim:\n"
             for u, v in arvore:
-                peso = self.G[u][v].get('weight', 1)
+                peso = G_nao_direcionado[u][v].get('weight', 1)
                 legenda += f"{u} - {v} (peso {peso})\n"
             self.desenhar(path_edges=arvore)
             self.atualizar_legenda(legenda)
-
         except Exception as e:
             tk.messagebox.showerror("Erro", f"Erro ao calcular Prim: {e}")
 
     def mostrar_kruskal(self):
         try:
-            arvore = calcular_kruskal(self.G)
+            G_nao_direcionado = self.G.to_undirected()
+            arvore = calcular_kruskal(G_nao_direcionado)
             legenda = "Árvore Geradora Mínima pelo Algoritmo de Kruskal:\n"
             for u, v in arvore:
-                peso = self.G[u][v].get('weight', 1)
+                peso = G_nao_direcionado[u][v].get('weight', 1)
                 legenda += f"{u} - {v} (peso {peso})\n"
             self.desenhar(path_edges=arvore)
             self.atualizar_legenda(legenda)
-
         except Exception as e:
-            tk.messagebox.showerror("Erro", f"Erro ao calcular Kruskal: {e}")
-
+            tk.messagebox.showerror("Erro", f"Erro ao calcular Kruskal: {e}")   
+            
     def gerar_aleatorio(self):
         self.G = grafo_aleatorio(num_nos=6, prob=0.4)
         self.desenhar(legenda_callback=self.atualizar_legenda)
