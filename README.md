@@ -82,6 +82,26 @@ python src/main.py
 
 ---
 
+5. Exemplo da Aplicação utilizando um grafo gerado aleatoriamente e o algoritmo de Kruskal
+<div>
+<img src="src\assets\kruskalExemplo.png">
+</div>
+
+
+## **Vídeo de Apresentação**
+<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 20px 0; border-radius: 8px;">
+    <iframe 
+        src="https://youtu.be/oWhBgi1trDA" 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+        allowfullscreen>
+    </iframe>
+</div>
+<center><em>Vídeo de Apresentação</em></center>
+
+
+O vídeo de apresentação também também pode ser acessado clicando [aqui](https://youtu.be/oWhBgi1trDA).
+
+
 ## **Outros**
 
 - Elipses tracejadas indicam agrupamentos SCC.
