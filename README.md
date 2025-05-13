@@ -89,17 +89,8 @@ python src/main.py
 
 
 ## **Vídeo de Apresentação**
-<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 20px 0; border-radius: 8px;">
-    <iframe 
-        src="https://youtu.be/oWhBgi1trDA" 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-        allowfullscreen>
-    </iframe>
-</div>
-<center><em>Vídeo de Apresentação</em></center>
 
-
-O vídeo de apresentação também também pode ser acessado clicando [aqui](https://youtu.be/oWhBgi1trDA).
+O vídeo de apresentação esta disponível clicando [aqui](https://youtu.be/oWhBgi1trDA).
 
 
 ## **Outros**
